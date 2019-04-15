@@ -36,6 +36,10 @@ class IndecisionApp extends React.Component {
 
     this.setState((prevState) => ({ options: prevState.options.concat(option) }));
   }
+
+  handleClearSelectedOption = () => {
+    this.setState(() => ({selectedOption: undefined}));
+  }
   
   componentDidMount() {
     try {
@@ -81,6 +85,7 @@ class IndecisionApp extends React.Component {
         />
         <OptionModal
           selectedOption={this.state.selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
         />
       </div>
     );
